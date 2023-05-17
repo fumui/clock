@@ -26,8 +26,9 @@ function draw() {
     arc(0, 0, 280, 280, 0, minuteAngle);
 
     stroke(150, 255, 100);
+    let hourPreciseAngle = map(mn % 60, 0, 60, 0, 30);
     let hourAngle = map(hr % 12, 0, 12, 0, 360);
-    arc(0, 0, 260, 260, 0, hourAngle);
+    arc(0, 0, 260, 260, 0, hourAngle+hourPreciseAngle);
 
     push();
     rotate(secondAngle);
@@ -42,7 +43,7 @@ function draw() {
     pop();
 
     push();
-    rotate(hourAngle);
+    rotate(hourAngle+hourPreciseAngle);
     stroke(150, 255, 100);
     line(0, 0, 50, 0);
     pop();
